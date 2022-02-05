@@ -1,4 +1,4 @@
-var today = dayjs().format("dddd, MMMM D H:m")
+var today = dayjs().format("dddd, MMMM D h:ma")
  
 $("#currentDay").append(today);
  
@@ -7,16 +7,14 @@ var id = 0
 for (var i = 9; i <= 17; i++) {
     if (i < dayjs().hour()) {
         $(`#${i}`).addClass("past");
-        id++;
         }
     else if (i > dayjs().hour()) {
         $(`#${i}`).addClass("future");
-        id++;
         }
     else {
         $(`#${i}`).addClass("present");
-        id++;
         }
+    id++;
     $(`#${i}`).text(localStorage.getItem(id));
 }}
  
